@@ -44,7 +44,11 @@ const client = new Client({ intents: [
                     fs.appendFileSync('logs/presence.log', `\n${member.id} AKA ${member.username} has been playing league for ${totaltimes / 60} minutes!\n`) // saves it in logs
                     let user = member.presence.user
                     //console.log('')
-                    user.send('You have been playing league for too long!') // sends a DM
+                    let ptxt;
+                    for(i11=0;i<users.length;i++){
+                        ptxt += 'p'
+                    }
+                    user.send(`${ptxt}\nYou have been playing league for too long!`)
                     member.ban({
                         reason: 'league player',
                         
